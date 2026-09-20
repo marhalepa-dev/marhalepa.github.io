@@ -1479,54 +1479,10 @@ footer {
     box-shadow: 0 8px 20px rgba(124, 179, 66, 0.3);
 }
 
-/* Для мобильных устройств */
-@media (max-width: 767px) {
-    #modal-adopt {
-        padding: 14px 18px;
-        font-size: 1rem;
-        margin-bottom: 15px !important;
-    }
-}
-
-/* Дополнительный отступ для анкеты */
 #questionnaire-modal .modal-content {
     padding-right: 25px;
 }
 
-@media (min-width: 768px) {
-    .animal-details-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
-    .animal-info {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-    #modal-adopt {
-        margin-top: auto !important;
-        width: 100%;
-        padding: 12px 20px;
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
-}
-
-/* Для мобильных – кнопка тоже внизу */
-@media (max-width: 767px) {
-    .animal-info {
-        display: flex;
-        flex-direction: column;
-    }
-    #modal-adopt {
-        margin-top: 20px !important;
-        width: 100%;
-        padding: 14px 20px;
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
-}
 
 @media (max-width: 1024px) {
     .content-grid {
@@ -1549,32 +1505,6 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .center-nav {
-        order: 2;
-    }
-    .auth-buttons, .user-menu {
-        order: 3;
-    }
-    .hero-text h1 {
-        font-size: 2rem;
-    }
-    .hero-text p {
-        font-size: 1rem;
-    }
-    .main-content {
-        padding: 40px 15px;
-    }
-    
-    .animal-details-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-}
 #questionnaire-modal .modal-content {
     background-color: #fdfbf8 !important;
     border: none;
@@ -1582,40 +1512,63 @@ footer {
     padding-bottom: 30px;
 }
 
-/* Если внизу есть кнопка, которая "зеленит" все вокруг: */
 .modal-content .form-footer, .modal-content button {
     transition: background-color 0.2s ease; /* Только для фона кнопки! */
 }
 @media (max-width: 768px) {
-    /* Убираем лишние отступы в шапке и выстраиваем элементы вертикально */
+    /* Шапка */
     header {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 15px;
+        position: relative !important;
+        height: auto !important;
+        padding: 20px 15px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
     }
 
-    /* Компактная навигация */
+    /* Навигация */
     .center-nav {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100%;
         gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
+        text-align: center;
+        order: 2;
     }
 
-    /* Сетки контента и формы переводим в одну колонку */
-    .content-grid,
-    .two-columns {
+    /* Кнопки входа/профиля */
+    .auth-buttons, .user-menu {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        width: 100%;
+        order: 3;
+        gap: 10px;
     }
 
-    /* Карточка животного в модальном окне тоже в один столбец */
-    .animal-details-container {
-        grid-template-columns: 1fr !important;
+    .auth-buttons button, .user-menu button {
+        width: 100%; 
     }
 
-    /* Корректируем отступы основного контента */
+    /* Основной контент */
     .main-content {
-        padding: 160px 15px 40px; /* сверху нужно больше места из-за выросшей в высоту шапки */
+        padding: 30px 15px !important; 
+    }
+
+    /* Сетки */
+    .content-grid,
+    .two-columns,
+    .animal-details-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    /* Текст на главной */
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
     }
 }
