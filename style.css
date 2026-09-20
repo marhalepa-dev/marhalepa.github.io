@@ -1556,7 +1556,7 @@ footer {
     .animal-details-container {
         display: flex !important;
         flex-direction: column !important;
-        gap: 20px !important;
+        gap: 15px !important;
     }
 
     /* Текст на главной */
@@ -1574,7 +1574,7 @@ footer {
         display: flex !important;
         flex-direction: column;
         align-items: center;
-        gap: 25px;
+        gap: 20px;
     }
     
     .social-icons {
@@ -1597,5 +1597,11 @@ footer {
     .hero-image img {
         margin-top: 0 !important; /* Убиваем отрицательный отступ -215px */
         max-width: 100%;
+    }
+
+    .show-more-btn {
+        padding: 12px 30px !important; 
+        width: 100%; 
+        max-width: 280px;
     }
 }
