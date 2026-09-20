@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Помочь | PetShelter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="floating-blobs">
+    <div class="blob" style="--color1: #B8D9A6; --color2: #D4B48C; --size: 150px; --top: 10%; --left: 15%; --duration: 20s;"></div>
+    <div class="blob" style="--color1: #9CCC65; --color2: #C7A07E; --size: 180px; --top: 60%; --left: 70%; --duration: 25s;"></div>
+    <div class="blob" style="--color1: #D4B48C; --color2: #A8D5A2; --size: 120px; --top: 30%; --left: 45%; --duration: 18s;"></div>
+    <div class="blob" style="--color1: #A8D5A2; --color2: #C7A07E; --size: 200px; --top: 80%; --left: 20%; --duration: 30s;"></div>
+    <div class="blob" style="--color1: #8FBC8F; --color2: #B58B6B; --size: 140px; --top: 20%; --left: 85%; --duration: 22s;"></div>
+    <div class="blob" style="--color1: #C7A07E; --color2: #B8D9A6; --size: 160px; --top: 70%; --left: 35%; --duration: 28s;"></div>
+    <div class="blob" style="--color1: #B8D9A6; --color2: #9CCC65; --size: 110px; --top: 45%; --left: 55%; --duration: 24s;"></div>
+    <div class="blob" style="--color1: #D4B48C; --color2: #A8D5A2; --size: 190px; --top: 15%; --left: 60%; --duration: 26s;"></div>
+    <div class="blob" style="--color1: #9CCC65; --color2: #C7A07E; --size: 130px; --top: 85%; --left: 75%; --duration: 32s;"></div>
+    <div class="blob" style="--color1: #B8D9A6; --color2: #D4B48C; --size: 170px; --top: 5%; --left: 40%; --duration: 35s;"></div>
+    <div class="blob" style="--color1: #A8D5A2; --color2: #B58B6B; --size: 140px; --top: 50%; --left: 10%; --duration: 27s;"></div>
+    <div class="blob" style="--color1: #8FBC8F; --color2: #C7A07E; --size: 200px; --top: 90%; --left: 50%; --duration: 33s;"></div>
+</div>
+    <header>
+    <div class="logo">
+        <a href="index.html"><i class="fas fa-paw"></i>  PetShelter</a>
+    </div>
+    <nav class="center-nav">
+        <a href="animals.html">Животные</a>
+        <a href="daycare.html">Садик</a>
+        <a href="donate.html" class="active">Помочь</a>
+    </nav>
+    <div class="auth-buttons" id="auth-buttons">
+        <button class="login-btn" id="show-login-modal">Вход</button>
+        <button class="register-btn" id="show-register-modal">Регистрация</button>
+    </div>
+    <div class="user-menu" id="user-menu" style="display: none;">
+        <button class="account-btn" id="account-btn">Аккаунт</button>
+    </div>
+</header>
+
+    <main class="main-content donate-page">
+        <h1 class="page-title"><i class="fas fa-heart"></i> Помочь приюту</h1>
+        <div class="two-columns">
+            <div>
+                <h3>Текущие сборы</h3>
+                <div id="fundraisers-list"></div>
+            </div>
+            <div>
+                <h3>Сделать пожертвование</h3>
+                <form id="donate-form">
+                    <div class="form-group">
+                        <label>Сумма (₽)</label>
+                        <input type="number" id="donation-amount" class="form-control" min="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Назначение</label>
+                        <select id="donation-purpose" class="form-control">
+                            <option value="general">Общий сбор</option>
+                            <option value="vet">Лечение животных</option>
+                            <option value="food">Корм</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="button submit-btn">Пожертвовать</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4><i class="fas fa-paw"></i> PetShelter</h4>
+                <p>Забота о животных — наша миссия</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <a href="animals.html">Животные</a><br>
+                <a href="daycare.html">Садик</a><br>
+                <a href="donate.html">Помочь</a>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>+7 (999) 123-45-67</p>
+                <p>info@petshelter.ru</p>
+            </div>
+            <div class="footer-section social-links">
+                <h4>Мы в соцсетях</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 PetShelter. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Модальные окна -->
+<div id="auth-modal" class="modal">
+        <div class="modal-content auth-modal-content">
+            <span class="close-button">&times;</span>
+            <div id="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Вход</button>
+                <button class="auth-tab" data-tab="register">Регистрация</button>
+            </div>
+            <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="login-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" id="login-password" class="form-control" required>
+                </div>
+                <button type="submit" class="button submit-btn">Войти</button>
+            </form>
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label>Имя</label>
+                    <input type="text" id="reg-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="reg-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" id="reg-password" class="form-control" required>
+                </div>
+                <button type="submit" class="button submit-btn">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно деталей животного -->
+    <div id="animal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="animal-details-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div class="animal-gallery">
+                    <img id="modal-image" class="main-image" style="width: 100%; border-radius: 16px;" src="" alt="">
+                </div>
+                <div class="animal-info">
+                    <h2 id="modal-name"></h2>
+                    <p><i class="fas fa-paw"></i> <strong>Вид:</strong> <span id="modal-species"></span></p>
+                    <p><i class="fas fa-dog"></i> <strong>Порода:</strong> <span id="modal-breed"></span></p>
+                    <p><i class="fas fa-calendar-alt"></i> <strong>Возраст:</strong> <span id="modal-age"></span></p>
+                    <p><i class="fas fa-venus-mars"></i> <strong>Пол:</strong> <span id="modal-gender"></span></p>
+                    <p><i class="fas fa-weight-hanging"></i> <strong>Размер:</strong> <span id="modal-size"></span></p>
+                    <p><i class="fas fa-smile"></i> <strong>Привычки:</strong> <span id="modal-habits"></span></p>
+                    <p><i class="fas fa-heartbeat"></i> <strong>Заболевания:</strong> <span id="modal-health"></span></p>
+                    <p id="modal-description" style="margin-top: 15px;"></p>
+                    <button id="modal-adopt" class="button adopt-btn" style="margin-top: 20px;">Хочу усыновить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fundraiser-modal" class="modal">
+        <div class="modal-content fundraiser-modal-content">
+            <span class="close-button">&times;</span>
+            <div class="fundraiser-detail-container">
+                <div class="fundraiser-detail-image">
+                    <img id="fundraiser-detail-img" src="" alt="Фото сбора">
+                </div>
+                <div class="fundraiser-detail-text">
+                    <h2 id="fundraiser-detail-title"></h2>
+                    <p id="fundraiser-detail-description"></p>
+                    <p><strong>Цель:</strong> <span id="fundraiser-detail-target"></span> ₽</p>
+                    <p><strong>Собрано:</strong> <span id="fundraiser-detail-current"></span> ₽</p>
+                    <button id="fundraiser-detail-donate" class="button">Пожертвовать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Модальное окно для пожертвования -->
+    <div id="donation-modal" class="modal">
+        <div class="modal-content donation-modal-content">
+            <span class="close-button">&times;</span>
+            <h2><i class="fas fa-heart"></i> Пожертвование</h2>
+            <form id="donation-form">
+                <div class="form-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" id="donation-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Номер телефона *</label>
+                    <input type="tel" id="donation-phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="donation-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Сумма (₽) *</label>
+                    <input type="number" id="donation-amount-modal" class="form-control" min="100" required>
+                </div>
+                <div class="form-group">
+                    <label>Платёжная система *</label>
+                    <select id="donation-payment" class="form-control" required>
+                        <option value="">Выберите</option>
+                        <option value="sbp">СБП</option>
+                        <option value="sberbank">Сбербанк</option>
+                        <option value="tbank">Т-Банк</option>
+                        <option value="alfa">Альфа-Банк</option>
+                        <option value="other">Другая</option>
+                    </select>
+                </div>
+                <button type="submit" class="button submit-btn">Отправить пожертвование</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
