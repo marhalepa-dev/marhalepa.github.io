@@ -1682,6 +1682,3 @@ footer {
     }
 
 }
-html, body {
-    overscroll-behavior-y: none !important;
-}
