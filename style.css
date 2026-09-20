@@ -1516,7 +1516,7 @@ footer {
     transition: background-color 0.2s ease; /* Только для фона кнопки! */
 }
 @media (max-width: 768px) {
-    /* Шапка */
+
     header {
         position: relative !important;
         height: auto !important;
@@ -1526,7 +1526,6 @@ footer {
         gap: 20px !important;
     }
 
-    /* Навигация */
     .center-nav {
         display: flex !important;
         flex-direction: column !important;
@@ -1536,7 +1535,6 @@ footer {
         order: 2;
     }
 
-    /* Кнопки входа/профиля */
     .auth-buttons, .user-menu {
         display: flex;
         flex-direction: column;
@@ -1549,12 +1547,10 @@ footer {
         width: 100%; 
     }
 
-    /* Основной контент */
     .main-content {
         padding: 30px 15px !important; 
     }
 
-    /* Сетки */
     .content-grid,
     .two-columns,
     .animal-details-container {
@@ -1570,5 +1566,36 @@ footer {
     
     .hero-text p {
         font-size: 1rem;
+    }
+
+    /* Центрируем футер */
+    .footer-container {
+        text-align: center;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .social-icons {
+        justify-content: center; 
+    }
+
+    header, header.hide-header {
+        transform: none !important;
+    }
+
+    .hero {
+        margin-top: 20px !important; /* Убираем гигантский десктопный отступ */
+        padding: 40px 20px !important;
+    }
+    
+    .hero-image {
+        margin-top: 30px; /* Отодвигаем весь блок с картинкой вниз от текста */
+    }
+    
+    .hero-image img {
+        margin-top: 0 !important; /* Убиваем отрицательный отступ -215px */
+        max-width: 100%;
     }
 }
