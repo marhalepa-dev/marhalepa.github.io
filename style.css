@@ -1604,4 +1604,32 @@ footer {
         width: 100%; 
         max-width: 280px;
     }
+
+    .filters-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Бьем на две одинаковые колонки */
+        gap: 12px !important; 
+        padding: 15px !important;
+    }
+
+    .filter-group, 
+    .custom-select-container {
+        width: 100%;
+    }
+
+    /* Уменьшаем шрифты и отступы в самих выпадающих списках, чтобы они не раздувались */
+    .filter-group select,
+    .custom-select-trigger {
+        padding: 10px 25px 10px 12px !important;
+        font-size: 13px !important;
+        width: 100%;
+    }
+
+    /* Если там есть кнопка сброса, растягиваем её на всю ширину под фильтрами */
+    .reset-button {
+        grid-column: span 2; 
+        margin-top: 5px;
+        padding: 10px !important;
+        width: 100%;
+    }
 }
