@@ -1586,4 +1586,36 @@ footer {
 .modal-content .form-footer, .modal-content button {
     transition: background-color 0.2s ease; /* Только для фона кнопки! */
 }
+@media (max-width: 768px) {
+    /* Убираем лишние отступы в шапке и выстраиваем элементы вертикально */
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
 
+    /* Компактная навигация */
+    .center-nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Сетки контента и формы переводим в одну колонку */
+    .content-grid,
+    .two-columns {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Карточка животного в модальном окне тоже в один столбец */
+    .animal-details-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Корректируем отступы основного контента */
+    .main-content {
+        padding: 160px 15px 40px; /* сверху нужно больше места из-за выросшей в высоту шапки */
+    }
+}
