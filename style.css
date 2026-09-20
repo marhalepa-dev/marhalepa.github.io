@@ -88,14 +88,16 @@ header {
     align-items: center;
     z-index: 1000;
     border-bottom: none;
-    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1), background 0.3s;
+    transition: opacity 0.5s ease-out, transform 0.6s ease-out, background 0.3s !important;
     transform: translateY(0);
     box-sizing: border-box;
 }
 
 header.hide-header {
-    transform: translateY(-100%);
-    box-shadow: none;
+    opacity: 0 !important; /* Плавно тает и становится прозрачной */
+    pointer-events: none !important; /* Выключаем клики, чтобы невидимые кнопки не нажимались случайно */
+    transform: translateY(-15px) !important; /* Вместо жесткого отлета на -100%, слегка сдвигается вверх */
+    box-shadow: none !important;
 }
 
 .logo a {
@@ -1518,12 +1520,21 @@ footer {
 @media (max-width: 768px) {
 
     header {
-        position: relative !important;
+        position: relative !important; 
         height: auto !important;
         padding: 20px 15px !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 20px !important;
+        gap: 15px !important;
+        background: rgba(253, 248, 240, 0.95) !important;
+        z-index: 1000 !important;
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out !important;
+    }
+
+    header.hide-header {
+        opacity: 1 !important; 
+        pointer-events: auto !important;
+        transform: none !important;
     }
 
     .center-nav {
@@ -1548,7 +1559,7 @@ footer {
     }
 
     .main-content {
-        padding: 30px 15px !important; 
+        padding: 20px 15px 30px !important;
     }
 
     .content-grid,
@@ -1561,11 +1572,31 @@ footer {
 
     /* Текст на главной */
     .hero-text h1 {
-        font-size: 2rem;
+        grid-column: 1 / -1 !important;
+        grid-row: 1 !important;
+        text-align: center !important;
+        margin: 0 !important;
+        font-size: 30px;
     }
     
     .hero-text p {
-        font-size: 1rem;
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+        text-align: left;
+        margin: 0 !important;
+        font-size: 16px;
+    }
+
+    .hero-text {
+        display: contents !important;
+    }
+
+    .hero .button {
+        grid-column: 1 / -1 !important;
+        grid-row: 3 !important;
+        margin: 10px auto 0 !important;
+        justify-self: center !important;
+        width: max-content !important;
     }
 
     /* Центрируем футер */
@@ -1581,22 +1612,29 @@ footer {
         justify-content: center; 
     }
 
-    header, header.hide-header {
-        transform: none !important;
-    }
-
     .hero {
-        margin-top: 20px !important; /* Убираем гигантский десктопный отступ */
+        display: grid !important;
+        grid-template-columns: 1fr 100px !important; 
+        grid-template-rows: auto auto auto !important; 
+        gap: 15px !important;
         padding: 40px 20px !important;
+        margin: 15px 0 25px !important; /* Нормальный маленький отступ */
+        border-radius: 24px !important;
+        align-items: center !important;
     }
     
     .hero-image {
-        margin-top: 50px; /* Отодвигаем весь блок с картинкой вниз от текста */
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        margin: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
     }
     
     .hero-image img {
-        margin-top: 0 !important; /* Убиваем отрицательный отступ -215px */
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 130px !important;
+        margin: 0 !important;
     }
 
     .show-more-btn {
@@ -1632,4 +1670,18 @@ footer {
         padding: 10px !important;
         width: 100%;
     }
+
+    .reset-button {
+        grid-column: span 2; 
+        margin-top: 5px;
+        padding: 10px !important;
+        width: 100%;
+        color: var(--text-color) !important; /* Принудительно ставим цвет текста из темы */
+        -webkit-appearance: none !important; /* Выключаем дефолтные синие стили iOS/Android */
+        background: var(--card-bg) !important; /* Фиксируем фон */
+    }
+
+}
+html, body {
+    overscroll-behavior-y: none !important;
 }
